@@ -1,2 +1,2 @@
-# lingala_image_synthesis
+# Lingala text-to-image Synthesis
 Streamlit lingala image generator App.
