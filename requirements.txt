@@ -1,0 +1,4 @@
+streamlit==1.19.0
+torch==2.0.0.dev20230216
+googletrans==4.0.0rc1
+diffusers==0.12.1
