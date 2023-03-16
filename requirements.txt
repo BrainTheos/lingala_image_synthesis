@@ -1,3 +1,2 @@
-streamlit==1.19.0
 googletrans==4.0.0rc1
 diffusers==0.12.1
