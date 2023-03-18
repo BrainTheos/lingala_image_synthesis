@@ -65,7 +65,8 @@ with st.expander('Try out'):
         translation = trans.text
     else:
         st.write('☝️  Please enter a text')
-    print(translation)
+    st.subheader('English translation')
+    st.write(translation)
 
     gen_btn = st.button(
         label="Generate Image",
