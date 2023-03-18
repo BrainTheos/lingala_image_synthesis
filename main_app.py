@@ -13,7 +13,25 @@ with st.expander('About the app'):
 
 # Generate image based on a lingala prompt
 @st.cache_resource
-def generate_image(prompt, model_id, use_auth_token=None):
+def generate_image(prompt, model_id):
+
+    pipe = StableDiffusionPipeline.from_pretrained(model_id)
+    pipe = pipe.to("mps")
+
+    # Recommended if your computer has < 64 GB of RAM
+    pipe.enable_attention_slicing()
+
+    # First-time "warmup" pass (see explanation above)
+    _ = pipe(prompt, num_inference_steps=1)
+
+    # Results match those from the CPU device after the warmup pass.
+    image = pipe(prompt).images[0]
+
+    return image
+
+# Generate okapi image based on a lingala prompt
+@st.cache_resource
+def generate_image_okapi(prompt, model_id, use_auth_token=None):
 
     pipe = StableDiffusionPipeline.from_pretrained(model_id , use_auth_token=use_auth_token)
     pipe = pipe.to("mps")
@@ -80,7 +98,7 @@ with st.expander('Try out'):
 
     if gen_btn:
         token = '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'
-        img = generate_image(translation, okapi_model_id, token)
+        img = generate_image_okapi(translation, okapi_model_id, token)
         st.subheader('Generated Image')
         st.image(img)
 
