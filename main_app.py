@@ -1,4 +1,4 @@
-#import torch
+import torch
 from googletrans import Translator
 from diffusers import StableDiffusionPipeline, EulerDiscreteScheduler
 
