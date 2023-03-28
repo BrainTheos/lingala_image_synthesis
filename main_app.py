@@ -63,10 +63,9 @@ with st.expander('Try out'):
     if prompt != '':
         trans = translator.translate(prompt, dest='en')
         translation = trans.text
+        st.write('English translation 👉', translation)
     else:
         st.write('☝️  Please enter a text')
-    st.subheader('English translation')
-    st.write(translation)
 
     gen_btn = st.button(
         label="Generate Image",
@@ -78,29 +77,29 @@ with st.expander('Try out'):
         st.image(img)
 
 # Okapi-driven model
-st.header('Okapi-driven LITTIS')
+# st.header('Okapi-driven LITTIS')
 
-with st.expander('About the model'):
-    st.write('Model fine-tuned on images of Okapi mammal using DreamBooth approach')
+# with st.expander('About the model'):
+#     st.write('Model fine-tuned on images of Okapi mammal using DreamBooth approach')
 
-with st.expander('Try out'):
-    prompt = st.text_input(label="Prompt", placeholder="Enter a text in Lingala")
-    translation=''
-    if prompt != '':
-        trans = translator.translate(prompt, dest='en')
-        translation = trans.text
-    else:
-        st.write('☝️  Please enter a text')
-    print(translation)
+# with st.expander('Try out'):
+#     prompt = st.text_input(label="Prompt", placeholder="Enter a text in Lingala")
+#     translation=''
+#     if prompt != '':
+#         trans = translator.translate(prompt, dest='en')
+#         translation = trans.text
+#     else:
+#         st.write('☝️  Please enter a text')
+#     print(translation)
 
-    gen_btn = st.button(
-        label="Generate",
-        type = "primary")
+#     gen_btn = st.button(
+#         label="Generate",
+#         type = "primary")
 
-    if gen_btn:
-        token = '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'
-        img = generate_image_okapi(translation, okapi_model_id, token)
-        st.subheader('Generated Image')
-        st.image(img)
+#     if gen_btn:
+#         token = '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'
+#         img = generate_image_okapi(translation, okapi_model_id, token)
+#         st.subheader('Generated Image')
+#         st.image(img)
 
 
